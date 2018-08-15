@@ -1,2 +1,2 @@
 # HealthNet
-Nutrition Ionic App
+Nutrition Ionic App. Developed for mobile phone.
