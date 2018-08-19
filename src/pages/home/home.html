@@ -39,8 +39,9 @@
 </ion-header>
 
 <ion-content padding>
+    <p>ESTO PASA: {{ valor }}</p>
     <button ion-button (click)="pushPage()">
-        Go to OtherPage
+        CLEAR
       </button>
   <ion-card *ngFor="let meal of meals">
     <ion-card-header>
