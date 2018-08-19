@@ -1,17 +1,58 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+  <!-- <ion-navbar>
+    <ion-title>HealthNet</ion-title>
+  </ion-navbar> -->
+  <ion-grid class="summary">
+    <ion-row justify-content-center>
+      <ion-col>
+        <p>{{ totalKcal }}</p>
+        <p>Kcal</p>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-col>
+        <p>Hidratos</p>
+        <p>{{ totalCH }}</p>
+      </ion-col>
+      <ion-col>
+        <p>Proteinas</p>
+        <p>{{ totalPP }}</p>
+      </ion-col>
+      <ion-col>
+        <p>Grasas</p>
+        <p>{{ totalFat }}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="date-selector">
+    <ion-row justify-content-center>
+      <ion-col>
+        <ion-icon name="arrow-back" (click)="previousDay()"></ion-icon> &nbsp;
+        <span (click)="openDatePicker()">
+          {{ date.toLocaleDateString("es-ES") }}
+        </span>
+        &nbsp;
+        <ion-icon name="arrow-forward" (click)="nextDay()"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+    <button ion-button (click)="pushPage()">
+        Go to OtherPage
+      </button>
+  <ion-card *ngFor="let meal of meals">
+    <ion-card-header>
+      <ion-icon name="{{isGroupShown(meal) ? 'remove' : 'add'}}" (click)="toggleGroup(meal)"></ion-icon>
+      &nbsp; {{meal.name}} &nbsp;
+      <ion-icon name="trash" (click)="deleteGroup(meal)"></ion-icon>
+    </ion-card-header>
+    <ion-list *ngIf="isGroupShown(meal)">
+      <ion-item class="item-accordion" *ngFor="let aliment of meal.aliments">
+        {{aliment.name}}
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
 </ion-content>
