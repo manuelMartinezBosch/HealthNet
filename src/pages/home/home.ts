@@ -1,6 +1,6 @@
 import { MealDetailsPage } from '../meal-details/meal-details';
 import { NutritionProvider } from '../../providers/nutrition/nutrition.provider';
-import { Meal } from '../../app/meal';
+import { Meal } from './../../classes/meal';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DatePicker } from '@ionic-native/date-picker';
@@ -24,6 +24,7 @@ export class HomePage {
               public navCtrl: NavController) {      
     this.date = new Date();
     this.getMeals();
+    console.log("contruye");
   }
 
   pushPage(){
@@ -32,8 +33,12 @@ export class HomePage {
     // optional data can also be passed to the pushed page.
     this.navCtrl.push(MealDetailsPage, {
       id: 1,
-      name: "Carl"
+      name: "Carl",
+      homePage: this
     });
+  }
+  doStuff(): void {
+    this.totalPP = 20;
   }
 
   getMeals(): void {

@@ -14,6 +14,7 @@ export class MealDetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.id = navParams.get('id');
     this.name = navParams.get('name');
+    navParams.get('homePage').doStuff();
   }
 
 }

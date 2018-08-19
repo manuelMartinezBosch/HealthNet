@@ -218,6 +218,7 @@ var HomePage = /** @class */ (function () {
         this.totalFat = 0;
         this.date = new Date();
         this.getMeals();
+        console.log("contruye");
     }
     HomePage.prototype.pushPage = function () {
         // push another page onto the navigation stack
@@ -225,8 +226,12 @@ var HomePage = /** @class */ (function () {
         // optional data can also be passed to the pushed page.
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_0__meal_details_meal_details__["a" /* MealDetailsPage */], {
             id: 1,
-            name: "Carl"
+            name: "Carl",
+            homePage: this
         });
+    };
+    HomePage.prototype.doStuff = function () {
+        this.totalPP = 20;
     };
     HomePage.prototype.getMeals = function () {
         var _this = this;
@@ -269,11 +274,10 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"/home/manuel/IonicProjects/HealthNet/src/pages/home/home.html"*/'<ion-header>\n  <!-- <ion-navbar>\n    <ion-title>HealthNet</ion-title>\n  </ion-navbar> -->\n  <ion-grid class="summary">\n    <ion-row justify-content-center>\n      <ion-col>\n        <p>{{ totalKcal }}</p>\n        <p>Kcal</p>\n      </ion-col>\n    </ion-row>\n    <ion-row justify-content-center>\n      <ion-col>\n        <p>Hidratos</p>\n        <p>{{ totalCH }}</p>\n      </ion-col>\n      <ion-col>\n        <p>Proteinas</p>\n        <p>{{ totalPP }}</p>\n      </ion-col>\n      <ion-col>\n        <p>Grasas</p>\n        <p>{{ totalFat }}</p>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <ion-grid class="date-selector">\n    <ion-row justify-content-center>\n      <ion-col>\n        <ion-icon name="arrow-back" (click)="previousDay()"></ion-icon> &nbsp;\n        <span (click)="openDatePicker()">\n          {{ date.toLocaleDateString("es-ES") }}\n        </span>\n        &nbsp;\n        <ion-icon name="arrow-forward" (click)="nextDay()"></ion-icon>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-header>\n\n<ion-content padding>\n    <button ion-button (click)="pushPage()">\n        Go to OtherPage\n      </button>\n  <ion-card *ngFor="let meal of meals">\n    <ion-card-header>\n      <ion-icon name="{{isGroupShown(meal) ? \'remove\' : \'add\'}}" (click)="toggleGroup(meal)"></ion-icon>\n      &nbsp; {{meal.name}} &nbsp;\n      <ion-icon name="trash" (click)="deleteGroup(meal)"></ion-icon>\n    </ion-card-header>\n    <ion-list *ngIf="isGroupShown(meal)">\n      <ion-item class="item-accordion" *ngFor="let aliment of meal.aliments">\n        {{aliment.name}}\n      </ion-item>\n    </ion-list>\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/home/manuel/IonicProjects/HealthNet/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_date_picker__["a" /* DatePicker */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_nutrition_nutrition_provider__["a" /* NutritionProvider */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["d" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_date_picker__["a" /* DatePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_date_picker__["a" /* DatePicker */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__providers_nutrition_nutrition_provider__["a" /* NutritionProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_nutrition_nutrition_provider__["a" /* NutritionProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["d" /* NavController */]) === "function" && _c || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -304,14 +308,16 @@ var MealDetailsPage = /** @class */ (function () {
         this.navParams = navParams;
         this.id = navParams.get('id');
         this.name = navParams.get('name');
+        navParams.get('homePage').doStuff();
     }
     MealDetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-meal-details',template:/*ion-inline-start:"/home/manuel/IonicProjects/HealthNet/src/pages/meal-details/meal-details.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>MealDetails</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <p>\n  {{id}}\n</p>\n<p>\n  {{name}}\n</p>\n</ion-content>\n'/*ion-inline-end:"/home/manuel/IonicProjects/HealthNet/src/pages/meal-details/meal-details.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]) === "function" && _b || Object])
     ], MealDetailsPage);
     return MealDetailsPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=meal-details.js.map
@@ -395,17 +401,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+//Module imports
+
+
+
+
+
+//Pages imports
 
 
 
 
 
 
-
-
-
-
-
+//Providers imports
 
 
 
