@@ -207,14 +207,78 @@ var HomePage = /** @class */ (function () {
         this.totalCH = 0;
         this.totalPP = 0;
         this.totalFat = 0;
+        this.meals = [
+            {
+                name: "Comida 1",
+                aliments: [{
+                        name: "alimento 1"
+                    },
+                    {
+                        name: "alimento 2"
+                    }
+                ],
+                show: false
+            },
+            {
+                name: "Comida 2",
+                aliments: [{
+                        name: "alimento 3"
+                    },
+                    {
+                        name: "alimento 4"
+                    }
+                ],
+                show: false
+            },
+            {
+                name: "Comida 3",
+                aliments: [{
+                        name: "alimento 5"
+                    },
+                    {
+                        name: "alimento 6"
+                    }
+                ],
+                show: false
+            },
+            {
+                name: "Comida 4",
+                aliments: [{
+                        name: "alimento 7"
+                    },
+                    {
+                        name: "alimento 8"
+                    }
+                ],
+                show: false
+            },
+            {
+                name: "Comida 5",
+                aliments: [{
+                        name: "alimento 9"
+                    },
+                    {
+                        name: "alimento 410"
+                    }
+                ],
+                show: false
+            }
+        ];
     }
+    HomePage.prototype.toggleGroup = function (meal) {
+        meal.show = !meal.show;
+    };
+    HomePage.prototype.isGroupShown = function (meal) {
+        return meal.show;
+    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/manuel/IonicProjects/HealthNet/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>HealthNet</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <div class="summary">\n    <ion-grid>\n      <ion-row justify-content-center>\n        <ion-col>\n          <p>{{ totalKcal }}</p>\n          <p>Kcal</p>\n        </ion-col>\n      </ion-row>\n      <ion-row justify-content-center>\n        <ion-col>\n          <p>Hidratos</p>\n          <p>{{ totalCH }}</p>\n        </ion-col>\n        <ion-col>\n          <p>Proteinas</p>\n          <p>{{ totalPP }}</p>\n        </ion-col>\n        <ion-col>\n          <p>Grasas</p>\n          <p>{{ totalFat }}</p>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </div>\n</ion-content>'/*ion-inline-end:"/home/manuel/IonicProjects/HealthNet/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/home/manuel/IonicProjects/HealthNet/src/pages/home/home.html"*/'<ion-header>\n  <!-- <ion-navbar>\n    <ion-title>HealthNet</ion-title>\n  </ion-navbar> -->\n  <div class="summary">\n    <ion-grid>\n      <ion-row justify-content-center>\n        <ion-col>\n          <p>{{ totalKcal }}</p>\n          <p>Kcal</p>\n        </ion-col>\n      </ion-row>\n      <ion-row justify-content-center>\n        <ion-col>\n          <p>Hidratos</p>\n          <p>{{ totalCH }}</p>\n        </ion-col>\n        <ion-col>\n          <p>Proteinas</p>\n          <p>{{ totalPP }}</p>\n        </ion-col>\n        <ion-col>\n          <p>Grasas</p>\n          <p>{{ totalFat }}</p>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </div>\n</ion-header>\n\n<ion-content padding>\n\n  <ion-card *ngFor="let meal of meals">\n    <ion-card-header class="item-stable">\n      <ion-icon name="{{isGroupShown(meal) ? \'remove\' : \'add\'}}" (click)="toggleGroup(meal)"></ion-icon>\n      &nbsp; {{meal.name}}\n    </ion-card-header>\n    <ion-list *ngIf="isGroupShown(meal)">\n      <ion-item class="item-accordion" *ngFor="let aliment of meal.aliments">\n        {{aliment.name}}\n      </ion-item>\n    </ion-list>\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/home/manuel/IonicProjects/HealthNet/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object])
     ], HomePage);
     return HomePage;
+    var _a;
 }());
 
 //# sourceMappingURL=home.js.map

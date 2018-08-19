@@ -1,10 +1,7 @@
 <ion-header>
-  <ion-navbar>
+  <!-- <ion-navbar>
     <ion-title>HealthNet</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content>
+  </ion-navbar> -->
   <div class="summary">
     <ion-grid>
       <ion-row justify-content-center>
@@ -29,4 +26,20 @@
       </ion-row>
     </ion-grid>
   </div>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngFor="let meal of meals">
+    <ion-card-header class="item-stable">
+      <ion-icon name="{{isGroupShown(meal) ? 'remove' : 'add'}}" (click)="toggleGroup(meal)"></ion-icon>
+      &nbsp; {{meal.name}}
+    </ion-card-header>
+    <ion-list *ngIf="isGroupShown(meal)">
+      <ion-item class="item-accordion" *ngFor="let aliment of meal.aliments">
+        {{aliment.name}}
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
 </ion-content>
