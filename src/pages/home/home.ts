@@ -1,6 +1,9 @@
-import { Meal } from './../../app/meal';
+import { MealDetailsPage } from '../meal-details/meal-details';
+import { NutritionProvider } from '../../providers/nutrition/nutrition.provider';
+import { Meal } from '../../app/meal';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { DatePicker } from '@ionic-native/date-picker';
 
 
 @Component({
@@ -13,66 +16,56 @@ export class HomePage {
   totalCH = 0;
   totalPP = 0;
   totalFat = 0;
+  date: Date;
   meals: Meal[];
 
-  constructor(public navCtrl: NavController) {
-    this.meals = [
-      {
-        name: "Comida 1",
-        aliments: [{
-            name: "alimento 1"
-          },
-          {
-            name: "alimento 2"
-          }
-        ],
-        show: false
+  constructor(private datePicker: DatePicker,
+              private nutritionProvider: NutritionProvider,
+              public navCtrl: NavController) {      
+    this.date = new Date();
+    this.getMeals();
+  }
+
+  pushPage(){
+    // push another page onto the navigation stack
+    // causing the nav controller to transition to the new page
+    // optional data can also be passed to the pushed page.
+    this.navCtrl.push(MealDetailsPage, {
+      id: 1,
+      name: "Carl"
+    });
+  }
+
+  getMeals(): void {
+    this.nutritionProvider.getMeals().subscribe(meals => {
+      this.meals = meals;
+      this.meals.forEach(function(meal) {
+        meal.show = true;
+      });
+    });
+  }
+
+  openDatePicker(): void {
+    this.datePicker.show({
+      date: this.date,
+      mode: 'date',
+      androidTheme: this.datePicker.ANDROID_THEMES.THEME_DEVICE_DEFAULT_LIGHT
+    }).then(
+      date => {
+        this.date = date;
       },
-      {
-        name: "Comida 2",
-        aliments: [{
-            name: "alimento 3"
-          },
-          {
-            name: "alimento 4"
-          }
-        ],
-        show: false
-      },
-      {
-        name: "Comida 3",
-        aliments: [{
-            name: "alimento 5"
-          },
-          {
-            name: "alimento 6"
-          }
-        ],
-        show: false
-      },
-      {
-        name: "Comida 4",
-        aliments: [{
-            name: "alimento 7"
-          },
-          {
-            name: "alimento 8"
-          }
-        ],
-        show: false
-      },
-      {
-        name: "Comida 5",
-        aliments: [{
-            name: "alimento 9"
-          },
-          {
-            name: "alimento 410"
-          }
-        ],
-        show: false
-      }
-    ];
+      err => console.log('Error occurred while getting date: ', err)
+    );
+  }
+
+  previousDay(): void {
+    this.date.setDate(this.date.getDate()-1);
+    // var d = new Date();
+    // d.setDate(d.getDate()-5);
+  }
+
+  nextDay(): void {
+    this.date.setDate(this.date.getDate()+1);
   }
 
   toggleGroup(meal: Meal): void {
@@ -81,6 +74,11 @@ export class HomePage {
 
   isGroupShown(meal: Meal): boolean {
     return meal.show;
+  }
+
+  deleteGroup(meal: Meal): void {
+    var index = this.meals.indexOf(meal);
+    this.meals.splice(index, 1);
   }
 
 }

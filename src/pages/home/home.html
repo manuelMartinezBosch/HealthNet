@@ -2,38 +2,51 @@
   <!-- <ion-navbar>
     <ion-title>HealthNet</ion-title>
   </ion-navbar> -->
-  <div class="summary">
-    <ion-grid>
-      <ion-row justify-content-center>
-        <ion-col>
-          <p>{{ totalKcal }}</p>
-          <p>Kcal</p>
-        </ion-col>
-      </ion-row>
-      <ion-row justify-content-center>
-        <ion-col>
-          <p>Hidratos</p>
-          <p>{{ totalCH }}</p>
-        </ion-col>
-        <ion-col>
-          <p>Proteinas</p>
-          <p>{{ totalPP }}</p>
-        </ion-col>
-        <ion-col>
-          <p>Grasas</p>
-          <p>{{ totalFat }}</p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+  <ion-grid class="summary">
+    <ion-row justify-content-center>
+      <ion-col>
+        <p>{{ totalKcal }}</p>
+        <p>Kcal</p>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-col>
+        <p>Hidratos</p>
+        <p>{{ totalCH }}</p>
+      </ion-col>
+      <ion-col>
+        <p>Proteinas</p>
+        <p>{{ totalPP }}</p>
+      </ion-col>
+      <ion-col>
+        <p>Grasas</p>
+        <p>{{ totalFat }}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="date-selector">
+    <ion-row justify-content-center>
+      <ion-col>
+        <ion-icon name="arrow-back" (click)="previousDay()"></ion-icon> &nbsp;
+        <span (click)="openDatePicker()">
+          {{ date.toLocaleDateString("es-ES") }}
+        </span>
+        &nbsp;
+        <ion-icon name="arrow-forward" (click)="nextDay()"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-header>
 
 <ion-content padding>
-
+    <button ion-button (click)="pushPage()">
+        Go to OtherPage
+      </button>
   <ion-card *ngFor="let meal of meals">
-    <ion-card-header class="item-stable">
+    <ion-card-header>
       <ion-icon name="{{isGroupShown(meal) ? 'remove' : 'add'}}" (click)="toggleGroup(meal)"></ion-icon>
-      &nbsp; {{meal.name}}
+      &nbsp; {{meal.name}} &nbsp;
+      <ion-icon name="trash" (click)="deleteGroup(meal)"></ion-icon>
     </ion-card-header>
     <ion-list *ngIf="isGroupShown(meal)">
       <ion-item class="item-accordion" *ngFor="let aliment of meal.aliments">
