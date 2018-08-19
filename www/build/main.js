@@ -275,7 +275,6 @@ var HomePage = /** @class */ (function () {
         this.minDate = new Date();
         this.maxDate = new Date();
         this.minDate.setFullYear(this.minDate.getFullYear() - 5);
-        this.getMeals();
         this.minDate.setHours(0, 0, 0, 0);
         this.maxDate.setHours(0, 0, 0, 0);
         this.date.setHours(0, 0, 0, 0);
@@ -284,6 +283,7 @@ var HomePage = /** @class */ (function () {
         }, function (error) {
             _this.valor = error;
         });
+        this.getMeals();
     }
     HomePage.prototype.imprime = function () {
     };

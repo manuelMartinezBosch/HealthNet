@@ -26,15 +26,16 @@ export class HomePage {
   constructor(private datePicker: DatePicker,
               private nutritionProvider: NutritionProvider,
               public navCtrl: NavController,
-            private nativeStorage: NativeStorage) {      
+            private nativeStorage: NativeStorage) { 
+
     this.date = new Date();
     this.minDate = new Date();
     this.maxDate = new Date();
     this.minDate.setFullYear( this.minDate.getFullYear() - 5);
-    this.getMeals();
     this.minDate.setHours(0,0,0,0);
     this.maxDate.setHours(0,0,0,0);
     this.date.setHours(0,0,0,0);
+
     nativeStorage.getItem('userId').then(
       data => {
         this.valor = data;
@@ -42,7 +43,9 @@ export class HomePage {
       error => {
         this.valor = error;
       }
-    )
+    );
+    
+    this.getMeals();
   }
 
   imprime(): void {
