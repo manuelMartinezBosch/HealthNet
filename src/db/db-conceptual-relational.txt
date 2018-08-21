@@ -1,0 +1,36 @@
+One table for each class
+
+USER(us_id, us_mail, us_age, us_weight, us_height)x
+RECIPE(re_id, re_person_quantity, re_name)x
+ALIMENT(al_id, al_name, al_barcode, al_hydrates, al_proteins, al_fat, al_calcium)x
+MEAL(me_id, me_date)x
+MEAL_TYPE(mety_id, mety_name)x
+UNIT(un_id, un_name)x
+QUANTITY_1(quantity)x
+QUANTITY_2(quantity)x
+EQUIVALENCE(grams_per_unit)x
+
+One table for each relation
+
+USER_RECIPE(re_id, us_id)x
+USER_MEAL(me_id, us_id)x
+MEAL_RECIPE(me_id,re_id)x
+ALIMENT_RECIPE(al_id, re_id, quantity, un_id)x
+ALIMENT_MEAL(al_id, me_id, quantity, un_id)x
+ALIMENT_UNIT(al_id, un_id, grams_per_unit)x
+MEA_TYPE(me_id, mety_id)x
+
+Final Fusion
+
+USER(us_id, us_password, us_name, us_mail, us_age, us_weight, us_height)
+RECIPE(re_id, us_id, re_person_quantity, re_name)
+ALIMENT(al_id, al_name, al_barcode, al_hydrates, al_proteins, al_fat, al_calcium)
+ALIMENT_RECIPE(al_id, re_id, quantity, un_id)
+ALIMENT_MEAL(al_id, me_id, quantity, un_id)
+ALIMENT_UNIT(al_id, un_id, grams_per_unit)
+MEAL(me_id, us_id, mety_id, me_date)
+MEAL_RECIPE(me_id,re_id)
+MEAL_TYPE(mety_id, mety_name)
+UNIT(un_id, un_name)
+
+
