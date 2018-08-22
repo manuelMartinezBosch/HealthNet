@@ -12,8 +12,6 @@
             "id": 2,
             "name": "Verduras con pollo",
             "isAliment": false,
-            "quantity": 0,
-            "unit": "",
             "kcal": 200
         }
     ]

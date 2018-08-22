@@ -50,7 +50,7 @@
       <ion-icon name="trash" (click)="deleteGroup(meal)"></ion-icon>
     </ion-card-header>
     <ion-list *ngIf="isGroupShown(meal)">
-      <ion-item class="item-accordion" *ngFor="let aliment of meal.aliments">
+      <ion-item class="item-accordion" *ngFor="let aliment of meal.elements">
         {{aliment.name}}
       </ion-item>
     </ion-list>

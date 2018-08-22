@@ -71,7 +71,16 @@ export class HomePage {
     this.nutritionProvider.getMeals().subscribe(meals => {
       this.meals = meals;
       this.meals.forEach(function(meal) {
+        console.log(meal.name);
         meal.show = true;
+        meal.elements.forEach(function(aliment) {
+          console.log(aliment.id);
+          console.log(aliment.name);
+          console.log(aliment.quantity);
+          console.log(aliment.unit);
+          console.log(aliment.kcal);
+        });
+
       });
     });
   }

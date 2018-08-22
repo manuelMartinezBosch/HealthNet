@@ -22,7 +22,8 @@ export class MyApp {
       },
       error => {
         console.log("No hace getItem: " + error);
-        this.rootPage = LoginPage;
+        //this.rootPage = LoginPage;
+        this.rootPage = TabsPage;
       }
     );
     platform.ready().then(() => {

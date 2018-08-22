@@ -1,5 +1,5 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-$valor = '[{"name":"Comida 1","aliments":[{"name":"Alimento 1"},{"name":"Alimento 2"}]},{"name":"Comida 2","aliments":[{"name":"Alimento 3"},{"name":"Alimento 4"}]},{"name":"Comida 1","aliments":[{"name":"Alimento 1"},{"name":"Alimento 2"}]},{"name":"Comida 1","aliments":[{"name":"Alimento 1"},{"name":"Alimento 2"}]},{"name":"Comida 1","aliments":[{"name":"Alimento 1"},{"name":"Alimento 2"}]}]';
+$valor = '[{"name":"Desayuno","elements":[{"id":1,"name":"Brocoli","isAliment":true,"quantity":3,"unit":"Loncha","kcal":20},{"id":2,"name":"Verduras con pollo","isAliment":false,"kcal":200}]}]';
 echo $valor;
 ?>

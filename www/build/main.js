@@ -306,7 +306,15 @@ var HomePage = /** @class */ (function () {
         this.nutritionProvider.getMeals().subscribe(function (meals) {
             _this.meals = meals;
             _this.meals.forEach(function (meal) {
+                console.log(meal.name);
                 meal.show = true;
+                meal.elements.forEach(function (aliment) {
+                    console.log(aliment.id);
+                    console.log(aliment.name);
+                    console.log(aliment.quantity);
+                    console.log(aliment.unit);
+                    console.log(aliment.kcal);
+                });
             });
         });
     };
@@ -354,7 +362,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/manuel/IonicProjects/HealthNet/src/pages/home/home.html"*/'<ion-header>\n  <!-- <ion-navbar>\n    <ion-title>HealthNet</ion-title>\n  </ion-navbar> -->\n  <ion-grid class="summary">\n    <ion-row justify-content-center>\n      <ion-col>\n        <p>{{ totalKcal }}</p>\n        <p>Kcal</p>\n      </ion-col>\n    </ion-row>\n    <ion-row justify-content-center>\n      <ion-col>\n        <p>Hidratos</p>\n        <p>{{ totalCH }}</p>\n      </ion-col>\n      <ion-col>\n        <p>Proteinas</p>\n        <p>{{ totalPP }}</p>\n      </ion-col>\n      <ion-col>\n        <p>Grasas</p>\n        <p>{{ totalFat }}</p>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <ion-grid class="date-selector">\n    <ion-row justify-content-center>\n      <ion-col>\n        <ion-icon name="arrow-back" (click)="previousDay()"></ion-icon> &nbsp;\n        <span (click)="openDatePicker()">\n          {{ date.toLocaleDateString("es-ES") }}\n        </span>\n        &nbsp;\n        <ion-icon name="arrow-forward" (click)="nextDay()"></ion-icon>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-header>\n\n<ion-content padding>\n    <p>ESTO PASA: {{ valor }}</p>\n    <button ion-button (click)="pushPage()">\n        CLEAR\n      </button>\n  <ion-card *ngFor="let meal of meals">\n    <ion-card-header>\n      <ion-icon name="{{isGroupShown(meal) ? \'remove\' : \'add\'}}" (click)="toggleGroup(meal)"></ion-icon>\n      &nbsp; {{meal.name}} &nbsp;\n      <ion-icon name="trash" (click)="deleteGroup(meal)"></ion-icon>\n    </ion-card-header>\n    <ion-list *ngIf="isGroupShown(meal)">\n      <ion-item class="item-accordion" *ngFor="let aliment of meal.aliments">\n        {{aliment.name}}\n      </ion-item>\n    </ion-list>\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/home/manuel/IonicProjects/HealthNet/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/home/manuel/IonicProjects/HealthNet/src/pages/home/home.html"*/'<ion-header>\n  <!-- <ion-navbar>\n    <ion-title>HealthNet</ion-title>\n  </ion-navbar> -->\n  <ion-grid class="summary">\n    <ion-row justify-content-center>\n      <ion-col>\n        <p>{{ totalKcal }}</p>\n        <p>Kcal</p>\n      </ion-col>\n    </ion-row>\n    <ion-row justify-content-center>\n      <ion-col>\n        <p>Hidratos</p>\n        <p>{{ totalCH }}</p>\n      </ion-col>\n      <ion-col>\n        <p>Proteinas</p>\n        <p>{{ totalPP }}</p>\n      </ion-col>\n      <ion-col>\n        <p>Grasas</p>\n        <p>{{ totalFat }}</p>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <ion-grid class="date-selector">\n    <ion-row justify-content-center>\n      <ion-col>\n        <ion-icon name="arrow-back" (click)="previousDay()"></ion-icon> &nbsp;\n        <span (click)="openDatePicker()">\n          {{ date.toLocaleDateString("es-ES") }}\n        </span>\n        &nbsp;\n        <ion-icon name="arrow-forward" (click)="nextDay()"></ion-icon>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-header>\n\n<ion-content padding>\n    <p>ESTO PASA: {{ valor }}</p>\n    <button ion-button (click)="pushPage()">\n        CLEAR\n      </button>\n  <ion-card *ngFor="let meal of meals">\n    <ion-card-header>\n      <ion-icon name="{{isGroupShown(meal) ? \'remove\' : \'add\'}}" (click)="toggleGroup(meal)"></ion-icon>\n      &nbsp; {{meal.name}} &nbsp;\n      <ion-icon name="trash" (click)="deleteGroup(meal)"></ion-icon>\n    </ion-card-header>\n    <ion-list *ngIf="isGroupShown(meal)">\n      <ion-item class="item-accordion" *ngFor="let aliment of meal.elements">\n        {{aliment.name}}\n      </ion-item>\n    </ion-list>\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/home/manuel/IonicProjects/HealthNet/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_date_picker__["a" /* DatePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_date_picker__["a" /* DatePicker */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__providers_nutrition_nutrition_provider__["a" /* NutritionProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_nutrition_nutrition_provider__["a" /* NutritionProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["d" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__ionic_native_native_storage__["a" /* NativeStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__ionic_native_native_storage__["a" /* NativeStorage */]) === "function" && _d || Object])
     ], HomePage);
@@ -520,13 +528,12 @@ var AppModule = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_login_login__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_native_storage__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_tabs_tabs__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_tabs_tabs__ = __webpack_require__(101);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -542,17 +549,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen, nativeStorage) {
         var _this = this;
         this.nativeStorage = nativeStorage;
         this.nativeStorage.getItem('userId').then(function (data) {
             console.log("Existe usuario: " + data);
-            _this.rootPage = __WEBPACK_IMPORTED_MODULE_6__pages_tabs_tabs__["a" /* TabsPage */];
+            _this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_tabs_tabs__["a" /* TabsPage */];
         }, function (error) {
             console.log("No hace getItem: " + error);
-            _this.rootPage = __WEBPACK_IMPORTED_MODULE_0__pages_login_login__["a" /* LoginPage */];
+            //this.rootPage = LoginPage;
+            _this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_tabs_tabs__["a" /* TabsPage */];
         });
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
@@ -562,11 +569,12 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/manuel/IonicProjects/HealthNet/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/manuel/IonicProjects/HealthNet/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/manuel/IonicProjects/HealthNet/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/manuel/IonicProjects/HealthNet/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* Platform */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_native_storage__["a" /* NativeStorage */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */]) === "function" && _d || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=app.component.js.map
