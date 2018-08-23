@@ -17,14 +17,17 @@ INSERT INTO MEAL(us_id, mety_id, me_date)
     VALUES
         (1, 1, NOW());
 
-INSERT INTO UNIT(un_name) VALUES ('Loncha');
+INSERT INTO UNIT(un_name) VALUES 
+    ('Loncha'),
+    ('Unidad');
 
 INSERT INTO ALIMENT_UNIT(al_id, un_id, grams_per_unit)
     VALUES 
         (1, 1, 40),
         (2, 1, 20),
         (3, 1, 5),
-        (4, 1, 10);
+        (4, 1, 10),
+        (2, 2, 150);
 
 INSERT INTO MEAL_ALIMENT (al_id, me_id, quantity, un_id)
     VALUES (2, 1, 3, 1);

@@ -1,7 +1,7 @@
 export class Aliment {
     id: number;
     name: string;
-    isAliment: boolean;
+    isRecipe: boolean;
     quantity: number;
     unit: string;
     kcal: number;
