@@ -16,7 +16,8 @@ export class LoginPage {
   }
 
   doStuff(): void {
-    this.nativeStorage.setItem('userId', 1).then(() => {
+    this.nativeStorage.setItem('userId', 1).then(
+      () => {
         console.log('Full Logged!');
         this.navCtrl.push(TabsPage, {}, {
           animate: false

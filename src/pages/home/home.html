@@ -39,7 +39,7 @@
 </ion-header>
 
 <ion-content padding>
-    <p>ESTO PASA: {{ valor }}</p>
+    <p>ESTO PASA: {{ userId }}</p>
     <button ion-button (click)="pushPage()">
         CLEAR
       </button>
@@ -50,7 +50,7 @@
       <ion-icon name="trash" (click)="deleteGroup(meal)"></ion-icon>
     </ion-card-header>
     <ion-list *ngIf="isGroupShown(meal)">
-      <ion-item class="item-accordion" *ngFor="let aliment of meal.elements">
+      <ion-item class="item-accordion" *ngFor="let aliment of meal.items">
         {{aliment.name}}
       </ion-item>
     </ion-list>

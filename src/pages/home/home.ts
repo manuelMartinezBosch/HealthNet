@@ -21,12 +21,12 @@ export class HomePage {
   maxDate: Date;
   date: Date;
   meals: Meal[];
-  valor: string;
+  userId: number;
 
   constructor(private datePicker: DatePicker,
               private nutritionProvider: NutritionProvider,
               public navCtrl: NavController,
-            private nativeStorage: NativeStorage) { 
+              private nativeStorage: NativeStorage) { 
 
     this.date = new Date();
     this.minDate = new Date();
@@ -38,14 +38,15 @@ export class HomePage {
 
     nativeStorage.getItem('userId').then(
       data => {
-        this.valor = data;
+        this.userId = data;
       },
       error => {
-        this.valor = error;
+        this.userId = 1;
+        this.getMeals();
       }
     );
     
-    this.getMeals();
+    
   }
 
   imprime(): void {
@@ -68,17 +69,12 @@ export class HomePage {
   }
 
   getMeals(): void {
-    this.nutritionProvider.getMeals().subscribe(meals => {
+    this.nutritionProvider.getMeals(this.userId, this.date).subscribe(meals => {
       this.meals = meals;
+      console.log(this.meals);
       this.meals.forEach(function(meal) {
-        console.log(meal.name);
         meal.show = true;
-        meal.elements.forEach(function(aliment) {
-          console.log(aliment.id);
-          console.log(aliment.name);
-          console.log(aliment.quantity);
-          console.log(aliment.unit);
-          console.log(aliment.kcal);
+        meal.items.forEach(function(aliment) {
         });
 
       });
@@ -111,6 +107,7 @@ export class HomePage {
         this.date.getFullYear() != this.minDate.getFullYear()) {
 
       this.date.setDate(this.date.getDate() - 1);
+      this.getMeals();
     }
   }
 
@@ -120,6 +117,7 @@ export class HomePage {
         this.date.getFullYear() != this.maxDate.getFullYear()) {
 
       this.date.setDate(this.date.getDate() + 1);
+      this.getMeals();
     }
   }
 

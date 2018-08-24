@@ -1,16 +1,21 @@
 [{
     "name": "Desayuno",
-    "elements": [{
-            "id": 1,
+    "items": [{
+            "id": 2,
             "name": "Brocoli",
             "quantity": 3,
             "unit": "Loncha",
-            "kcal": 20
+            "kcal": 69
         },
         {
             "id": 2,
+            "name": "Verduras con pavo",
+            "kcal": 34
+        },
+        {
+            "id": 1,
             "name": "Verduras con pollo",
-            "kcal": 200
+            "kcal": 148
         }
     ]
 }]

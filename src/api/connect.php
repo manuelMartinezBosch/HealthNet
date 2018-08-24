@@ -1,9 +1,9 @@
 <?php
-$con = new mysqli("localhost", "root", "", "nutrition");
-
-if(!$con) {
-	$error_con = true;
+$sql = new mysqli("localhost", "root", "", "nutrition");
+$error_connection = false;
+if(!$sql) {
+	$error_connection = true;
 } else {
-	mysqli_set_charset($con, "utf8");
+	mysqli_set_charset($sql, "utf8");
 }
 ?>
