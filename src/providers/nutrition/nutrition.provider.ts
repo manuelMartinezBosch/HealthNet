@@ -5,7 +5,7 @@ import { Meal } from './../../classes/meal';
 
 @Injectable()
 export class NutritionProvider {
-  private BaseUrl = "http://localhost/api/GetMeals.php";
+  private BaseUrl = "https://a1ca22ef.ngrok.io/api/";
   constructor(private http: HttpClient) {
   }
 
@@ -16,7 +16,7 @@ export class NutritionProvider {
       })
     };
     return this.http.post<Meal[]>(
-      this.BaseUrl, 
+      this.BaseUrl + "GetMeals", 
       { "userId": userId,
         "mealsDay": mealsDay.getFullYear() + "-" + (mealsDay.getMonth() + 1) + "-" + mealsDay.getDate()
       }, 
