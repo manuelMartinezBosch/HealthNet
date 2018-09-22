@@ -2,6 +2,6 @@ import { Aliment } from './aliment';
 
 export class Meal {
   name: string;
-  aliments: Aliment[];
+  items: Aliment[];
   show: boolean;
 }

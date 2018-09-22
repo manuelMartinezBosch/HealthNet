@@ -27972,16 +27972,18 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
-page-home .text-center {
-  text-align: center;
-}
-
 page-home .summary {
   background-color: #00796B;
   color: white;
   font-weight: bold;
+  text-align: center;
 }
 
 page-home .summary p {
   margin: 8px 0 8px 0;
+}
+
+page-home .date-selector {
+  text-align: center;
+  font-size: 18px;
 }

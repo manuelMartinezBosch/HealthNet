@@ -1,3 +1,4 @@
+
 //Module imports
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -5,6 +6,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { HttpClientModule }    from '@angular/common/http';
 import { MyApp } from './app.component';
 //Pages imports
+import { LoginPage } from './../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { MealDetailsPage } from '../pages/meal-details/meal-details';
 import { RecipesPage } from '../pages/recipes/recipes'
@@ -15,11 +17,13 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DatePicker } from '@ionic-native/date-picker';
+import { NativeStorage } from '@ionic-native/native-storage';
 import { NutritionProvider } from '../providers/nutrition/nutrition.provider';
 
 @NgModule({
   declarations: [
     MyApp,
+    LoginPage,
     HomePage,
     MealDetailsPage,
     RecipesPage,
@@ -35,6 +39,7 @@ import { NutritionProvider } from '../providers/nutrition/nutrition.provider';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
     HomePage,
     MealDetailsPage,
     RecipesPage,
@@ -46,6 +51,7 @@ import { NutritionProvider } from '../providers/nutrition/nutrition.provider';
     StatusBar,
     SplashScreen,
     DatePicker,
+    NativeStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NutritionProvider
   ]

@@ -1,3 +1,4 @@
+import { NativeStorage } from '@ionic-native/native-storage';
 import { MealDetailsPage } from '../meal-details/meal-details';
 import { NutritionProvider } from '../../providers/nutrition/nutrition.provider';
 import { Meal } from './../../classes/meal';
@@ -16,36 +17,66 @@ export class HomePage {
   totalCH = 0;
   totalPP = 0;
   totalFat = 0;
+  minDate: Date;
+  maxDate: Date;
   date: Date;
   meals: Meal[];
+  userId: number;
 
   constructor(private datePicker: DatePicker,
               private nutritionProvider: NutritionProvider,
-              public navCtrl: NavController) {      
+              public navCtrl: NavController,
+              private nativeStorage: NativeStorage) { 
+
     this.date = new Date();
-    this.getMeals();
-    console.log("contruye");
+    this.minDate = new Date();
+    this.maxDate = new Date();
+    this.minDate.setFullYear( this.minDate.getFullYear() - 5);
+    this.minDate.setHours(0,0,0,0);
+    this.maxDate.setHours(0,0,0,0);
+    this.date.setHours(0,0,0,0);
+
+    nativeStorage.getItem('userId').then(
+      data => {
+        this.userId = data;
+      },
+      error => {
+        this.userId = 1;
+        this.getMeals();
+      }
+    );
+    
+    
+  }
+
+  imprime(): void {
+
   }
 
   pushPage(){
     // push another page onto the navigation stack
     // causing the nav controller to transition to the new page
     // optional data can also be passed to the pushed page.
-    this.navCtrl.push(MealDetailsPage, {
-      id: 1,
-      name: "Carl",
-      homePage: this
-    });
+    // this.navCtrl.push(MealDetailsPage, {
+    //   id: 1,
+    //   name: "Carl",
+    //   homePage: this
+    // });
+    this.nativeStorage.clear();
   }
   doStuff(): void {
     this.totalPP = 20;
   }
 
   getMeals(): void {
-    this.nutritionProvider.getMeals().subscribe(meals => {
+    this.nutritionProvider.getMeals(this.userId, this.date).subscribe(meals => {
       this.meals = meals;
+      console.log(this.meals);
       this.meals.forEach(function(meal) {
         meal.show = true;
+        meal.items.forEach(function(aliment) {
+        });
+
       });
     });
   }
@@ -57,20 +88,37 @@ export class HomePage {
       androidTheme: this.datePicker.ANDROID_THEMES.THEME_DEVICE_DEFAULT_LIGHT
     }).then(
       date => {
-        this.date = date;
+        console.log("MINIMA: " + this.minDate + " MAXIMA: " + this.maxDate);
+        if (date >= this.minDate && date <= this.maxDate) {
+          this.date = date;
+          console.log("fecha dentro" + date);
+        } else {
+          console.log("fecha fuera rango" + date);
+        }
       },
       err => console.log('Error occurred while getting date: ', err)
     );
   }
 
   previousDay(): void {
-    this.date.setDate(this.date.getDate()-1);
-    // var d = new Date();
-    // d.setDate(d.getDate()-5);
+    //si tienen mismo día, mes y año entonces no puedo ir hacia atrás
+    if (this.date.getDate() != this.minDate.getDate() ||
+        this.date.getMonth() != this.minDate.getMonth() ||
+        this.date.getFullYear() != this.minDate.getFullYear()) {
+
+      this.date.setDate(this.date.getDate() - 1);
+      this.getMeals();
+    }
   }
 
   nextDay(): void {
-    this.date.setDate(this.date.getDate()+1);
+    if (this.date.getDate() != this.maxDate.getDate() ||
+        this.date.getMonth() != this.maxDate.getMonth() ||
+        this.date.getFullYear() != this.maxDate.getFullYear()) {
+
+      this.date.setDate(this.date.getDate() + 1);
+      this.getMeals();
+    }
   }
 
   toggleGroup(meal: Meal): void {
