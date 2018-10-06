@@ -32,7 +32,7 @@ var TabsPage = /** @class */ (function () {
         this.tab4Root = __WEBPACK_IMPORTED_MODULE_2__more_more__["a" /* MorePage */];
     }
     TabsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/media/DATA/Projects/HealthNet/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="Recipes" tabIcon="bookmarks"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Profile" tabIcon="person"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle="More" tabIcon="add"></ion-tab>\n</ion-tabs>'/*ion-inline-end:"/media/DATA/Projects/HealthNet/src/pages/tabs/tabs.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\manue\Projects\HealthNet\src\pages\tabs\tabs.html"*/'<ion-tabs>\n\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n\n  <ion-tab [root]="tab2Root" tabTitle="Recipes" tabIcon="bookmarks"></ion-tab>\n\n  <ion-tab [root]="tab3Root" tabTitle="Profile" tabIcon="person"></ion-tab>\n\n  <ion-tab [root]="tab4Root" tabTitle="More" tabIcon="add"></ion-tab>\n\n</ion-tabs>'/*ion-inline-end:"C:\Users\manue\Projects\HealthNet\src\pages\tabs\tabs.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], TabsPage);
@@ -101,7 +101,7 @@ var RecipesPage = /** @class */ (function () {
     }
     RecipesPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-recipes',template:/*ion-inline-start:"/media/DATA/Projects/HealthNet/src/pages/recipes/recipes.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Recipes</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/media/DATA/Projects/HealthNet/src/pages/recipes/recipes.html"*/,
+            selector: 'page-recipes',template:/*ion-inline-start:"C:\Users\manue\Projects\HealthNet\src\pages\recipes\recipes.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Recipes</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\manue\Projects\HealthNet\src\pages\recipes\recipes.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
     ], RecipesPage);
@@ -136,7 +136,7 @@ var MorePage = /** @class */ (function () {
     }
     MorePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-more',template:/*ion-inline-start:"/media/DATA/Projects/HealthNet/src/pages/more/more.html"*/'\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>More</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/media/DATA/Projects/HealthNet/src/pages/more/more.html"*/,
+            selector: 'page-more',template:/*ion-inline-start:"C:\Users\manue\Projects\HealthNet\src\pages\more\more.html"*/'\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>More</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\manue\Projects\HealthNet\src\pages\more\more.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
     ], MorePage);
@@ -172,7 +172,7 @@ var ProfilePage = /** @class */ (function () {
     }
     ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"/media/DATA/Projects/HealthNet/src/pages/profile/profile.html"*/'\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Profile</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/media/DATA/Projects/HealthNet/src/pages/profile/profile.html"*/,
+            selector: 'page-profile',template:/*ion-inline-start:"C:\Users\manue\Projects\HealthNet\src\pages\profile\profile.html"*/'\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Profile</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\manue\Projects\HealthNet\src\pages\profile\profile.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
     ], ProfilePage);
@@ -306,7 +306,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/media/DATA/Projects/HealthNet/src/pages/home/home.html"*/'<ion-header>\n  <!-- <ion-navbar>\n    <ion-title>HealthNet</ion-title>\n  </ion-navbar> -->\n  <ion-grid class="summary">\n    <ion-row justify-content-center>\n      <ion-col>\n        <p>{{ totalKcal }}</p>\n        <p>Kcal</p>\n      </ion-col>\n    </ion-row>\n    <ion-row justify-content-center>\n      <ion-col>\n        <p>Hidratos</p>\n        <p>{{ totalCH }}</p>\n      </ion-col>\n      <ion-col>\n        <p>Proteinas</p>\n        <p>{{ totalPP }}</p>\n      </ion-col>\n      <ion-col>\n        <p>Grasas</p>\n        <p>{{ totalFat }}</p>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <ion-grid class="date-selector">\n    <ion-row justify-content-center>\n      <ion-col>\n        <ion-icon name="arrow-back" (click)="previousDay()"></ion-icon> &nbsp;\n        <span (click)="openDatePicker()">\n          {{ date.toLocaleDateString("es-ES") }}\n        </span>\n        &nbsp;\n        <ion-icon name="arrow-forward" (click)="nextDay()"></ion-icon>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-header>\n\n<ion-content padding>\n    <p>ESTO PASA: {{ userId }}</p>\n    <button ion-button (click)="pushPage()">\n        CLEAR\n      </button>\n  <ion-card *ngFor="let meal of meals">\n    <ion-card-header>\n      <ion-icon name="{{isGroupShown(meal) ? \'remove\' : \'add\'}}" (click)="toggleGroup(meal)"></ion-icon>\n      &nbsp; {{meal.name}} &nbsp;\n      <ion-icon name="trash" (click)="deleteGroup(meal)"></ion-icon>\n    </ion-card-header>\n    <ion-list *ngIf="isGroupShown(meal)">\n      <ion-item class="item-accordion" *ngFor="let aliment of meal.items">\n        {{aliment.name}}\n      </ion-item>\n    </ion-list>\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/media/DATA/Projects/HealthNet/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\manue\Projects\HealthNet\src\pages\home\home.html"*/'<ion-header>\n\n  <!-- <ion-navbar>\n\n    <ion-title>HealthNet</ion-title>\n\n  </ion-navbar> -->\n\n  <ion-grid class="summary">\n\n    <ion-row justify-content-center>\n\n      <ion-col>\n\n        <p>{{ totalKcal }}</p>\n\n        <p>Kcal</p>\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row justify-content-center>\n\n      <ion-col>\n\n        <p>Hidratos</p>\n\n        <p>{{ totalCH }}</p>\n\n      </ion-col>\n\n      <ion-col>\n\n        <p>Proteinas</p>\n\n        <p>{{ totalPP }}</p>\n\n      </ion-col>\n\n      <ion-col>\n\n        <p>Grasas</p>\n\n        <p>{{ totalFat }}</p>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n  <ion-grid class="date-selector">\n\n    <ion-row justify-content-center>\n\n      <ion-col>\n\n        <ion-icon name="arrow-back" (click)="previousDay()"></ion-icon> &nbsp;\n\n        <span (click)="openDatePicker()">\n\n          {{ date.toLocaleDateString("es-ES") }}\n\n        </span>\n\n        &nbsp;\n\n        <ion-icon name="arrow-forward" (click)="nextDay()"></ion-icon>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n    <p>ESTO PASA: {{ userId }}</p>\n\n    <button ion-button (click)="pushPage()">\n\n        CLEAR\n\n      </button>\n\n  <ion-card *ngFor="let meal of meals">\n\n    <ion-card-header>\n\n      <ion-icon name="{{isGroupShown(meal) ? \'remove\' : \'add\'}}" (click)="toggleGroup(meal)"></ion-icon>\n\n      &nbsp; {{meal.name}} &nbsp;\n\n      <ion-icon name="trash" (click)="deleteGroup(meal)"></ion-icon>\n\n    </ion-card-header>\n\n    <ion-list *ngIf="isGroupShown(meal)">\n\n      <ion-item class="item-accordion" *ngFor="let aliment of meal.items">\n\n        {{aliment.name}}\n\n      </ion-item>\n\n    </ion-list>\n\n  </ion-card>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\manue\Projects\HealthNet\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_date_picker__["a" /* DatePicker */],
             __WEBPACK_IMPORTED_MODULE_1__providers_nutrition_nutrition_provider__["a" /* NutritionProvider */],
@@ -522,7 +522,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/media/DATA/Projects/HealthNet/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/media/DATA/Projects/HealthNet/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\manue\Projects\HealthNet\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\manue\Projects\HealthNet\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */]])
     ], MyApp);
@@ -575,7 +575,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/media/DATA/Projects/HealthNet/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button ion-button (click)="doStuff()">\n    LOGIN\n  </button>\n</ion-content>\n'/*ion-inline-end:"/media/DATA/Projects/HealthNet/src/pages/login/login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Users\manue\Projects\HealthNet\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>login</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <button ion-button (click)="doStuff()">\n\n    LOGIN\n\n  </button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\manue\Projects\HealthNet\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__ionic_native_native_storage__["a" /* NativeStorage */]])
     ], LoginPage);
@@ -614,7 +614,7 @@ var MealDetailsPage = /** @class */ (function () {
     }
     MealDetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-meal-details',template:/*ion-inline-start:"/media/DATA/Projects/HealthNet/src/pages/meal-details/meal-details.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>MealDetails</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <p>\n  {{id}}\n</p>\n<p>\n  {{name}}\n</p>\n</ion-content>\n'/*ion-inline-end:"/media/DATA/Projects/HealthNet/src/pages/meal-details/meal-details.html"*/,
+            selector: 'page-meal-details',template:/*ion-inline-start:"C:\Users\manue\Projects\HealthNet\src\pages\meal-details\meal-details.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>MealDetails</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <p>\n\n  {{id}}\n\n</p>\n\n<p>\n\n  {{name}}\n\n</p>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\manue\Projects\HealthNet\src\pages\meal-details\meal-details.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
     ], MealDetailsPage);
