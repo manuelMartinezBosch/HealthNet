@@ -7,14 +7,25 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>login</ion-title>
+    <ion-title>Login</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <button ion-button (click)="doStuff()">
-    LOGIN
-  </button>
+  <ion-label>I dont have an account</ion-label>
+  <button ion-button (click)="signIn()">SIGN IN</button>
+  <form #form="ngForm" (ngSubmit)="login()" novalidate>
+    <ion-item>
+      <ion-label>User mail</ion-label>
+      <ion-input type="mail" required [(ngModel)]="mail" name="mail" ngControl="mail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" required [(ngModel)]="password" name="password" ngControl="password"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>LOGIN</button>
+  </form>
+  <p *ngIf="error">{{ error }}</p>
 </ion-content>
