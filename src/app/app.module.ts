@@ -20,6 +20,8 @@ import { DatePicker } from '@ionic-native/date-picker';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { NutritionProvider } from '../providers/nutrition/nutrition.provider';
 import { AuthorizationProvider } from '../providers/authorization/authorization';
+import { SiginPage } from '../pages/sigin/sigin';
+import { UserProvider } from '../providers/user/user';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { AuthorizationProvider } from '../providers/authorization/authorization'
     RecipesPage,
     ProfilePage,
     MorePage,
-    TabsPage
+    TabsPage,
+    SiginPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { AuthorizationProvider } from '../providers/authorization/authorization'
     RecipesPage,
     ProfilePage,
     MorePage,
-    TabsPage
+    TabsPage,
+    SiginPage
   ],
   providers: [
     StatusBar,
@@ -55,7 +59,8 @@ import { AuthorizationProvider } from '../providers/authorization/authorization'
     NativeStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NutritionProvider,
-    AuthorizationProvider
+    AuthorizationProvider,
+    UserProvider
   ]
 })
 export class AppModule {}

@@ -12,10 +12,9 @@ import { map, catchError } from 'rxjs/operators';
 @Injectable()
 export class AuthorizationProvider {
 
-  private readonly BASE_URL = "https://api-nutrition.herokuapp.com";
-  //private readonly BASE_URL = "https://localhost:5001";
+  // private readonly BASE_URL = "https://api-nutrition.herokuapp.com";
+  private readonly BASE_URL = "https://localhost:5001";
   constructor(public http: HttpClient) {
-    console.log('Hello AuthorizationProvider Provider');
   }
 
   authorize (mail: string, password: string): Observable<string> {

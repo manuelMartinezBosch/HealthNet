@@ -1,0 +1,33 @@
+<!--
+  Generated template for the SiginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sigin</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form #form="ngForm" (ngSubmit)="signIn()" novalidate>
+      <ion-item>
+        <ion-label>User mail</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input type="mail" required [(ngModel)]="mail" name="mail" ngControl="mail"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Password</ion-label>
+      </ion-item> 
+      <ion-item>
+        <ion-input type="password" required [(ngModel)]="password" name="password" ngControl="password"></ion-input>
+      </ion-item>
+      <button ion-button type="submit" block>SIGIN</button>
+    </form>
+    <p *ngIf="error">{{ error }}</p>
+</ion-content>
