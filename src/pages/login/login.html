@@ -14,7 +14,16 @@
 
 
 <ion-content padding>
-  <button ion-button (click)="doStuff()">
-    LOGIN
-  </button>
+  <form #form="ngForm" (ngSubmit)="loggin(form)" novalidate>
+    <ion-item>
+      <ion-label>User mail</ion-label>
+      <ion-input type="text" required [(ngModel)]="mail" name="mail" ngControl="mail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="text" required [(ngModel)]="password" name="password" ngControl="password"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>LOGIN</button>
+  </form>
+  <p *ngIf="error">{{ error }}</p>
 </ion-content>

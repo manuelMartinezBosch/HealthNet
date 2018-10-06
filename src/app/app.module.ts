@@ -19,6 +19,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { DatePicker } from '@ionic-native/date-picker';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { NutritionProvider } from '../providers/nutrition/nutrition.provider';
+import { AuthorizationProvider } from '../providers/authorization/authorization';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { NutritionProvider } from '../providers/nutrition/nutrition.provider';
     DatePicker,
     NativeStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NutritionProvider
+    NutritionProvider,
+    AuthorizationProvider
   ]
 })
 export class AppModule {}

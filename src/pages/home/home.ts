@@ -22,6 +22,7 @@ export class HomePage {
   date: Date;
   meals: Meal[];
   userId: number;
+  userToken: string;
 
   constructor(private datePicker: DatePicker,
               private nutritionProvider: NutritionProvider,
@@ -36,13 +37,13 @@ export class HomePage {
     this.maxDate.setHours(0,0,0,0);
     this.date.setHours(0,0,0,0);
 
-    nativeStorage.getItem('userId').then(
+    nativeStorage.getItem('userToken').then(
       data => {
-        this.userId = data;
+        this.userToken = data;
       },
       error => {
-        this.userId = 1;
-        this.getMeals();
+        this.userToken = "";
+        //this.getMeals();
       }
     );
     
